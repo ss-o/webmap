@@ -1,7 +1,4 @@
-<p align="center">
-<img width="300" src="https://i.imgur.com/puyIfHT.jpg" /><br>
-A Web Dashbord for Nmap XML Report 
-</p>
+<h1 align="center">A Web Dashbord for Nmap XML Report </h1>
 
 ## Screenshot
 <img src="https://i.imgur.com/ELZfqd0.png" /><br>
