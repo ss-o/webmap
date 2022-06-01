@@ -1,0 +1,33 @@
+version: 0.1
+cli:
+  version: 0.12.1-beta
+repo:
+  repo:
+    host: github.com
+    owner: ss-o
+    name: webmap
+lint:
+  linters:
+    - name: markdownlint
+      command:
+        [markdownlint, -q, --config, .github/.markdownlint.yaml, "${target}"]
+      direct_configs: [.github/.markdownlint.yaml]
+  enabled:
+    - black@22.3.0
+    - flake8@4.0.1
+    - gitleaks@8.3.0
+    - hadolint@2.8.0
+    - isort@5.9.3
+    - markdownlint@0.31.1
+    - prettier@2.5.1
+    - shellcheck@0.8.0
+    - shfmt@3.4.0
+    - actionlint@1.6.13
+    - prettier@2.6.2
+    - shfmt@3.4.0
+    - taplo-fmt@release-cli-0.6.3
+    - taplo@release-cli-0.6.3
+  ignore:
+    - linters: [ALL]
+      paths:
+        - "i18n/**"

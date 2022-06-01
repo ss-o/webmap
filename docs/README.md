@@ -1,13 +1,38 @@
+<<<<<<< HEAD
 <h1 align="center">A Web Dashbord for Nmap XML Report </h1>
+=======
+<p align="center">
+<img width="300" src="https://i.imgur.com/puyIfHT.jpg" /><br>
+A Web Dashbord for Nmap XML Report 
+</p>
+
+## Table Of Contents
+
+- [Usage](#usage)
+- [Video](#video)
+- [Features](#features)
+- [PDF Report](#pdf-report)
+- [XML Filenames](#xml-filenames)
+- [CVE and Exploits](#cve-and-exploits)
+- [Network View](#network-view)
+- [RESTful API](#restful-api)
+- [Third Parts](#third-parts)
+- [Security Issues](#security-issues)
+- [Contributors](#contributors)
+- [Contacts](#contacts)
+>>>>>>> 992c028 (ew file:   .flake8)
 
 ## Screenshot
+
 <img src="https://i.imgur.com/ELZfqd0.png" /><br>
 <img src="https://i.imgur.com/KsBv1S0.png" /><br>
 <img src="https://i.imgur.com/g27mcc3.png" /><br>
 <br>
 
 ## Usage
+
 You should use this with docker, just by sending this command:
+
 ```bash
 mkdir /tmp/webmap
 docker run -d --name webmap \
@@ -19,15 +44,19 @@ docker run -d --name webmap \
 # now you can run Nmap and save the XML Report on /tmp/webmap
 nmap -sT -A -T4 -oX /tmp/webmap/myscan.xml 192.168.0.0/16
 ```
+
 Now point your browser to http://localhost:8000
 
 ### Generate new token
+
 In order to access to the WebMap dashboard, you need a token. You can create a new token with:
+
 ```bash
 $ docker exec -ti webmap /root/token
 ```
 
 ### Upgrade from previous release
+
 ```bash
 $ # stop running webmap container
 $ docker stop webmap
@@ -43,14 +72,16 @@ $ curl -sL http://bit.ly/webmapsetup | bash
 ```
 
 ### Run without Docker
-This project is designed to run on a Docker container. IMHO it isn't a good idea to run this on a custom Django installation, 
+
+This project is designed to run on a Docker container. IMHO it isn't a good idea to run this on a custom Django installation,
 but if you need it you can find all building steps inside the [Dockerfile](https://github.com/SabyasachiRana/WebMap/blob/master/docker/Dockerfile).
 
 ## Video
+
 The HTML template changes often. This video could not be up to date with the latest version.
 
-
 ## Features
+
 - Import and parse Nmap XML files
 - Run and Schedule Nmap Scan from dashboard
 - Statistics and Charts on discovered services, ports, OS, etc...
@@ -63,7 +94,9 @@ The HTML template changes often. This video could not be up to date with the lat
 - RESTful API
 
 ## Roadmap for v2.3x
+
 You love WebMap and you know python? We need your help! This is what we want deploy for the v2.3:
+
 - [todo] Improve template: try to define better the html template and charts
 - [todo] Improve API: create a documentation/wiki about it
 - [todo] Wiki: create WebMap User Guide on GitHub
@@ -72,12 +105,14 @@ You love WebMap and you know python? We need your help! This is what we want dep
 - [todo] Zaproxy: Perform web scan using the OWASP ZAP API
 
 ## Changes on v2.2
+
 - fixed bug on missing services
 - Run nmap from WebMap
 - Schedule nmap run
 - Add custom NSE scripts section
 
 ## Changes on v2.1
+
 - Better usage of Django template
 - Fixed some Nmap XML parse problems
 - Fixed CVE and Exploit collecting problems
@@ -85,10 +120,12 @@ You love WebMap and you know python? We need your help! This is what we want dep
 - Add RESTful API
 
 ## PDF Report
+
 ![WebMap](https://i.imgur.com/alWZix9.png)
 
 ## XML Filenames
-When creating the PDF version of the Nmap XML Report, the XML filename is used as document title on the first page. 
+
+When creating the PDF version of the Nmap XML Report, the XML filename is used as document title on the first page.
 WebMap will replace some parts of the filename as following:
 
 - `_` will replaced by a space (` `)
@@ -98,14 +135,17 @@ Example: `ACME_Ltd..xml`<br>
 PDF title: `ACME Ltd.`
 
 ## CVE and Exploits
-thanks to the amazing API services by circl.lu, WebMap is able to looking for CVE and Exploits for each CPE collected by Nmap. 
-Not all CPE are checked over the circl.lu API, but only when a specific version is specified 
+
+thanks to the amazing API services by circl.lu, WebMap is able to looking for CVE and Exploits for each CPE collected by Nmap.
+Not all CPE are checked over the circl.lu API, but only when a specific version is specified
 (for example: `cpe:/a:microsoft:iis:7.5` and not `cpe:/o:microsoft:windows`).
 
 ## Network View
+
 ![WebMap](https://i.imgur.com/j77jQz9.png)
 
 ## RESTful API
+
 From `v2.1` WebMap has a RESTful API frontend that makes users able to query their scan files with something like:
 
 ```bash
@@ -245,6 +285,7 @@ curl -v 'http://localhost:8000/api/v1/scan/hackthebox.xml/10.10.10.87?token=<tok
 ```
 
 ## Third Parts
+
 - [Django](https://www.djangoproject.com)
 - [Materialize CSS](https://materializecss.com)
 - [Clipboard.js](https://clipboardjs.com)
@@ -254,8 +295,8 @@ curl -v 'http://localhost:8000/api/v1/scan/hackthebox.xml/10.10.10.87?token=<tok
 - [vis.js](http://visjs.org/)
 
 ## Security Issues
-This app is not intended to be exposed to the internet, but to be used as localhost web application. Please, **DO NOT expose** this app to the internet, use your localhost or, 
-in case you can't do it, take care to filter who and what can access to WebMap with a firewall rule or something like that. 
-Exposing this app to the whole internet could lead not only to a stored XSS but also to a leakage of sensitive/critical/private 
-informations about your port scan. Please, be smart.
 
+This app is not intended to be exposed to the internet, but to be used as localhost web application. Please, **DO NOT expose** this app to the internet, use your localhost or,
+in case you can't do it, take care to filter who and what can access to WebMap with a firewall rule or something like that.
+Exposing this app to the whole internet could lead not only to a stored XSS but also to a leakage of sensitive/critical/private
+informations about your port scan. Please, be smart.
