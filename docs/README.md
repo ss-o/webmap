@@ -1,26 +1,4 @@
-<<<<<<< HEAD
 <h1 align="center">A Web Dashbord for Nmap XML Report </h1>
-=======
-<p align="center">
-<img width="300" src="https://i.imgur.com/puyIfHT.jpg" /><br>
-A Web Dashbord for Nmap XML Report 
-</p>
-
-## Table Of Contents
-
-- [Usage](#usage)
-- [Video](#video)
-- [Features](#features)
-- [PDF Report](#pdf-report)
-- [XML Filenames](#xml-filenames)
-- [CVE and Exploits](#cve-and-exploits)
-- [Network View](#network-view)
-- [RESTful API](#restful-api)
-- [Third Parts](#third-parts)
-- [Security Issues](#security-issues)
-- [Contributors](#contributors)
-- [Contacts](#contacts)
->>>>>>> 992c028 (ew file:   .flake8)
 
 ## Screenshot
 
@@ -30,6 +8,20 @@ A Web Dashbord for Nmap XML Report
 <br>
 
 ## Usage
+
+# <<<<<<< HEAD
+
+You should use this with docker, just by sending this command:
+
+````bash
+$ mkdir /tmp/webmap
+$ docker run -d \
+         --name webmap \
+         -h webmap \
+         -p 8000:8000 \
+         -v /tmp/webmap:/opt/xml \
+         reborntc/webmap
+>>>>>>> 992c028 (ew file:   .flake8)
 
 You should use this with docker, just by sending this command:
 
@@ -43,7 +35,7 @@ docker run -d --name webmap \
 
 # now you can run Nmap and save the XML Report on /tmp/webmap
 nmap -sT -A -T4 -oX /tmp/webmap/myscan.xml 192.168.0.0/16
-```
+````
 
 Now point your browser to http://localhost:8000
 
